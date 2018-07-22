@@ -14,8 +14,11 @@ from random import randint
 # print(f"You are {age} years old.")
 choices = ['rock','paper','scissors','quit']
 abbrs = ['r','p','s','q']
+p_score = 0
+c_score = 0
 
 while True:
+    print(f"SCORE:  PLAYER {p_score}  COMPUTER {c_score} \n")
     print(f"{choices[0]} <{abbrs[0]}>, {choices[1]} <{abbrs[1]}>, {choices[2]} <{abbrs[2]}>, or to quit <{abbrs[3]}>")
     player = abbrs.index(input("Choose one: "))
     if player == 3:
@@ -31,8 +34,10 @@ while True:
         check = player + 1
 
     if player == computer:
-        print(f"{choices[player]} vs {choices[computer]} \n DRAW")
+        print(f"{choices[player]} vs {choices[computer]} \n DRAW \n")
     elif choices[computer] == choices[check]:
-        print(f"{choices[player]} vs {choices[computer]} \n {choices[computer].upper()} WINS")
+        c_score = c_score + 1
+        print(f"{choices[player]} vs {choices[computer]} \n {choices[computer].upper()} WINS \n")
     else:
-        print(f"{choices[player]} vs {choices[computer]} \n {choices[player].upper()} WINS")
+        p_score = p_score + 1
+        print(f"{choices[player]} vs {choices[computer]} \n {choices[player].upper()} WINS \n")
