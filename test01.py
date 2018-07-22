@@ -12,23 +12,27 @@ from random import randint
 # today = datetime.date.today()
 # age = today.year - dob.year - ((today.month, today.day) < (dob.month, dob.day))
 # print(f"You are {age} years old.")
-choices = ['rock','paper','scissors']
-abbrs = ['r','p','s']
+choices = ['rock','paper','scissors','quit']
+abbrs = ['r','p','s','q']
 
-print(f"{choices[0]} <{abbrs[0]}>, {choices[1]} <{abbrs[1]}>, {choices[2]} <{abbrs[2]}>")
-player = abbrs.index(input("Choose one: "))
-# print(f"{player}")
-computer = randint(0,2)
-# print(f"{computer}")
+while True:
+    print(f"{choices[0]} <{abbrs[0]}>, {choices[1]} <{abbrs[1]}>, {choices[2]} <{abbrs[2]}>, or to quit <{abbrs[3]}>")
+    player = abbrs.index(input("Choose one: "))
+    if player == 3:
+        print("Goodbye")
+        break
+    # print(f"{player}")
+    computer = randint(0,2)
+    # print(f"{computer}")
 
-if (player + 1) == 3:
-    check = 0
-else:
-    check = player + 1
+    if (player + 1) == 3:
+        check = 0
+    else:
+        check = player + 1
 
-if player == computer:
-    print(f"{choices[player]} vs {choices[computer]} \n DRAW")
-elif choices[computer] == choices[check]:
-    print(f"{choices[player]} vs {choices[computer]} \n {choices[computer].upper()} WINS")
-else:
-    print(f"{choices[player]} vs {choices[computer]} \n {choices[player].upper()} WINS")
+    if player == computer:
+        print(f"{choices[player]} vs {choices[computer]} \n DRAW")
+    elif choices[computer] == choices[check]:
+        print(f"{choices[player]} vs {choices[computer]} \n {choices[computer].upper()} WINS")
+    else:
+        print(f"{choices[player]} vs {choices[computer]} \n {choices[player].upper()} WINS")
